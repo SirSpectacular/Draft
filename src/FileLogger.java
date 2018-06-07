@@ -1,14 +1,16 @@
-import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
 public class FileLogger {
 
-    private File file;
+    private PrintWriter writer;
 
-    FileLogger(String fileName){
-        file = new File(fileName);
+    FileLogger(String fileName) throws UnsupportedEncodingException, FileNotFoundException {
+        writer = new PrintWriter(fileName, "UTF-8");
     }
 
     public void log(Action action, Entry entry) {
-        file.
-    };
+        writer.println(action.toString() + ": " + entry.toString());
+    }
 }
