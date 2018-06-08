@@ -20,6 +20,7 @@ public class Controller implements Initializable {
 
     private History history;
     private InputBuffer inputBuffer;
+    private ScheduledExecutorService scheduler;
 
     private final KeyCombination keyCombinationUndo = new KeyCodeCombination(KeyCode.Z, KeyCombination.CONTROL_DOWN);
     private final KeyCombination keyCombinationRedo = new KeyCodeCombination(KeyCode.Y, KeyCombination.CONTROL_DOWN);
@@ -84,8 +85,12 @@ public class Controller implements Initializable {
         }
     }
 
+    public void stop() {
+        scheduler.shutdown();
+    }
+
     private void startMonitoringBuffer() {
-        final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        scheduler = Executors.newScheduledThreadPool(1);
 
         scheduler.scheduleAtFixedRate(
                 () -> Platform.runLater(() -> {

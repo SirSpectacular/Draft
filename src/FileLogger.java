@@ -11,7 +11,8 @@ public class FileLogger {
     }
 
     public void log(Action action, HistoryEntry entry) {
-        System.out.println(action.toString() + ": " + entry.toString()); //for now...
+        System.out.println(action.toString() + ": " + entry.toString());
         writer.println(action.toString() + ": " + entry.toString());
+        writer.flush();
     }
 }
