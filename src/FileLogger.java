@@ -10,7 +10,8 @@ public class FileLogger {
         writer = new PrintWriter(fileName, "UTF-8");
     }
 
-    public void log(Action action, Entry entry) {
+    public void log(Action action, HistoryEntry entry) {
+        System.out.println(action.toString() + ": " + entry.toString()); //for now...
         writer.println(action.toString() + ": " + entry.toString());
     }
 }

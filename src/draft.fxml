@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="4.0"
+      xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <Label fx:id="label" alignment="CENTER" contentDisplay="BOTTOM" text="Write some text below"/>
+   <TextField fx:id="field" editable="false" onKeyReleased="#handleKeyReleased" onKeyTyped="#handleKeyTyped"
+              promptText="Write here..."/>
+</VBox>

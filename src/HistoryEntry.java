@@ -1,12 +1,10 @@
 import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
 
-public class Entry {
+public class HistoryEntry {
     private Date dateTime;
     private String content;
 
-    Entry(String content) {
+    HistoryEntry(String content) {
         this.content = content;
         this.dateTime = new Date();
     }

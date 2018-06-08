@@ -1,32 +1,22 @@
-import java.io.FileNotFoundException;
-import java.io.UnsupportedEncodingException;
-import java.util.concurrent.TimeUnit;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class Draft {
+public class Draft extends Application {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+        Parent root = FXMLLoader.load(getClass().getResource("draft.fxml"));
+        Scene scene = new Scene(root, 500, 100);
+        primaryStage.setTitle("DraftBook");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 
     public static void main(String[] args) {
-        try {
-            Interpreter interpreter = new Interpreter(new FileLogger("logging.txt"));
-            Scanner scanner = new Scanner();
-
-            while (true) {
-                try {
-
-                    if (!scanner.isEmpty()) {
-                        String content = scanner.getBuffer();
-                        interpreter.addEntry(content);
-                        scanner.wipeBuffer();
-                    }
-
-                    TimeUnit.SECONDS.sleep(1);
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        catch (Exception e){
-
-        }
+        launch(args);
     }
 }
